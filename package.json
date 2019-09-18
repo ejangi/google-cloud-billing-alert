@@ -1,0 +1,29 @@
+{
+  "name": "google-cloud-billing-alert",
+  "version": "1.0.0",
+  "description": "Google Cloud Function that sends a Slack Notification when the monthly billing quota is reached.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ejangi/google-cloud-billing-alert.git"
+  },
+  "keywords": [
+    "gcloud",
+    "slack"
+  ],
+  "author": "James Angus <james@ejangi.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ejangi/google-cloud-billing-alert/issues"
+  },
+  "homepage": "https://github.com/ejangi/google-cloud-billing-alert#readme",
+  "dependencies": {
+    "@slack/webhook": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0"
+  }
+}
