@@ -8,12 +8,9 @@ module.exports.billingAlert = (pubSubEvent, context) => {
   const build = eventToBuild(pubSubEvent.data);
 
   // Skip if the cost isn't more than the budget
-  console.log("START BUILD...");
-  console.log(build);
-  console.log("END BUILD");
-//   if (status.indexOf(build.status) === -1) {
-//     return;
-//   }
+  if (build.costAmount < build.budgetAmount) {
+    return;
+  }
 
   // Send message to Slack.
   const message = createSlackMessage(build);
