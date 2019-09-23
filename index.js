@@ -14,17 +14,19 @@ module.exports.billingAlert = (pubSubEvent, context) => {
   // Add additional statuses to list if you'd like:
   // QUEUED, WORKING, SUCCESS, FAILURE,
   // INTERNAL_ERROR, TIMEOUT, CANCELLED
-  const status = ['SUCCESS', 'FAILURE', 'INTERNAL_ERROR', 'TIMEOUT'];
-  if (status.indexOf(build.status) === -1) {
-    return;
-  }
+//   const status = ['SUCCESS', 'FAILURE', 'INTERNAL_ERROR', 'TIMEOUT'];
+//   if (status.indexOf(build.status) === -1) {
+//     return;
+//   }
 
   // Send message to Slack.
   const message = createSlackMessage(build);
   (async () => {
     try {
         let result = await webhook.send(message);
-        console.log(result);
+        if (result.text != 'ok') {
+            console.error(result);
+        }
     } catch (e) {
         console.error(e);
     }
