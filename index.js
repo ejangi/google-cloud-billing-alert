@@ -4,17 +4,13 @@ const url = process.env.SLACK_WEBHOOK_URL;
 const webhook = new IncomingWebhook(url);
 
 // subscribeSlack is the main function called by Cloud Functions.
-module.exports.billingAlert = (pubSubEvent, context) => {
-  console.log(pubSubEvent);
-  console.log(context);
-  
+module.exports.billingAlert = (pubSubEvent, context) => {  
   const build = eventToBuild(pubSubEvent.data);
 
-  // Skip if the current status is not in the status list.
-  // Add additional statuses to list if you'd like:
-  // QUEUED, WORKING, SUCCESS, FAILURE,
-  // INTERNAL_ERROR, TIMEOUT, CANCELLED
-//   const status = ['SUCCESS', 'FAILURE', 'INTERNAL_ERROR', 'TIMEOUT'];
+  // Skip if the cost isn't more than the budget
+  console.log("START BUILD...");
+  console.log(build);
+  console.log("END BUILD");
 //   if (status.indexOf(build.status) === -1) {
 //     return;
 //   }
