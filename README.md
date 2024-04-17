@@ -7,5 +7,5 @@ This Google Cloud Function is based on the [example](https://cloud.google.com/bi
 To deploy, run:
 
 ```
-gcloud functions deploy billingAlert --trigger-topic monthly-budget --runtime nodejs10 --set-env-vars "SLACK_WEBHOOK_URL=https://hooks.slack.com/…"
+gcloud functions deploy billingAlert --gen2 --trigger-topic monthly-budget --runtime nodejs20 --set-env-vars "SLACK_WEBHOOK_URL=https://hooks.slack.com/…"
 ```

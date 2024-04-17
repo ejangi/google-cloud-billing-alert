@@ -3,6 +3,6 @@ steps:
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Deploy
-  args: ['functions', 'deploy', 'billingAlert', '--trigger-topic', 'monthly-budget', '--runtime', 'nodejs10', '--region', '${_REGION}']
+  args: ['functions', 'deploy', 'billingAlert', '--gen2', '--trigger-topic', 'monthly-budget', '--runtime', 'nodejs20', '--region', '${_REGION}']
   env: 
     - 'SLACK_WEBHOOK_URL=${_SLACK_WEBHOOK_URL}'
